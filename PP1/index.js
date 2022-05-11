@@ -3,7 +3,7 @@
 //[9,8,9]=>[9,9,0]
 
 const print = console.log;
-
+// version 1
 // function customFunct(arr) {
 //   //convert to string:[4,5,6]=>"234"=>"235"
 //   let n = "";
@@ -23,10 +23,19 @@ const print = console.log;
 //   }
 //   print(emptyArr);
 // }
+
+//version 2
+// const customFunct = (arr) =>
+//   (arr.map((item) => BigInt(item) + "").join("") * 1 + 1 + "")
+//     .split("")
+//     .map((item) => item * 1);
+
+//version 3
 const customFunct = (arr) =>
-  (arr.map((item) => item + "").join("") * 1 + 1 + "")
+  (BigInt(arr.map((item) => item + "").join("")) + 1n + "")
     .split("")
     .map((item) => item * 1);
 
 print(customFunct([2, 3, 4]));
 print(customFunct([9, 9, 9]));
+print(customFunct([6, 1, 4, 5, 3, 9, 0, 1, 9, 5, 1, 8, 6, 7, 0, 5, 5, 4, 3]));
